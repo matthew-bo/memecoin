@@ -1,0 +1,111 @@
+{
+  "startTime": 1712160000,
+  "endTime": 1712246400,
+  "bestPoll": "5iK7Vg3z9Z5JzL6L5gNDzYvGnvL5RZgS7LNc1ntPL4zz",
+  "worstPoll": "6gJX5Lv4Y9Rx7p6BRc1w1P1J3GsA1RAvZJcZh7UwkgHN",
+  "candidates": {
+    "best": [
+      {
+        "name": "Elon Musk",
+        "description": "CEO of Tesla, SpaceX, and X",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg",
+        "pubkey": "BcLxzmFUD7XnP1mZgqPKK2cB6x5GeJWH1BTfQZBJrzaZ",
+        "verified": true,
+        "verificationType": "social"
+      },
+      {
+        "name": "Vitalik Buterin",
+        "description": "Creator of Ethereum",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Vitalik_Buterin_TechCrunch_London_2015_%28cropped%29.jpg/800px-Vitalik_Buterin_TechCrunch_London_2015_%28cropped%29.jpg",
+        "pubkey": "Dt2KADyN8tHKEdJH7qRQsR79YaDahkHQxcZmfpxFCpXG",
+        "verified": true,
+        "verificationType": "blockchain"
+      },
+      {
+        "name": "Taylor Swift",
+        "description": "Singer-songwriter",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b5/191125_Taylor_Swift_at_the_2019_American_Music_Awards_%28cropped%29.png",
+        "pubkey": "AJBw1RzK4QQHxF6LCgq9ZxsNxgXXJhjoGLjs4G5Mc7hW",
+        "verified": true,
+        "verificationType": "social"
+      },
+      {
+        "name": "Keanu Reeves",
+        "description": "Actor and philanthropist",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%2846806576944%29_%28cropped%29.jpg/800px-Reuni%C3%A3o_com_o_ator_norte-americano_Keanu_Reeves_%2846806576944%29_%28cropped%29.jpg",
+        "pubkey": "FdA9CYDyFJKxBVpZ9bPGYdrGznXBQebtJ7dNxEgkxpDS",
+        "verified": true,
+        "verificationType": "social"
+      },
+      {
+        "name": "Malala Yousafzai",
+        "description": "Education activist and Nobel Prize laureate",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Malala_Yousafzai_at_Girl_Summit_2014.jpg",
+        "pubkey": "H7gEhN2Q6ZY1rNtKVKxJX9nqfxK7nJM6Zq9xnbkfxRzQ",
+        "verified": true,
+        "verificationType": "official"
+      },
+      {
+        "name": "Satoshi Nakamoto",
+        "description": "Creator of Bitcoin",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg",
+        "pubkey": "SaToShiNaKaMoToSaToShiNaKaMoToSaToShiNaKaMoTx",
+        "verified": true,
+        "verificationType": "blockchain"
+      }
+    ],
+    "worst": [
+      {
+        "name": "Vladimir Putin",
+        "description": "President of Russia",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Vladimir_Putin_17-11-2021_%28cropped%29.jpg/800px-Vladimir_Putin_17-11-2021_%28cropped%29.jpg",
+        "pubkey": "2k9XZDgwkL8M7wd9Vs9h1RFZz8WEZvmoBr5QQMmMwwBM",
+        "verified": true,
+        "verificationType": "official"
+      },
+      {
+        "name": "Kim Jong-un",
+        "description": "Supreme Leader of North Korea",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Kim_Jong-un_April_2019_%28cropped%29.jpg",
+        "pubkey": "5DSFbNryPjhA8QMg8zrwDCNv8K5K3QvQfSP9Mh3YHsGb",
+        "verified": true,
+        "verificationType": "official"
+      },
+      {
+        "name": "Martin Shkreli",
+        "description": "Former pharmaceutical executive",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Martin_Shkreli_House_Oversight_Committee.jpg",
+        "pubkey": "3yEsxKYbuSRNDZrj8x9WXmPD3LWgbGa2TnZKpJiZ6wDh",
+        "verified": false,
+        "verificationType": "none"
+      },
+      {
+        "name": "Harvey Weinstein",
+        "description": "Former film producer and convicted sex offender",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Harvey_Weinstein_2011_Shankbone.JPG/800px-Harvey_Weinstein_2011_Shankbone.JPG",
+        "pubkey": "7WeiNsTeInHaRvEyWeiNsTeInHaRvEyWeiNsTeInHaRvEy",
+        "verified": false,
+        "verificationType": "none"
+      },
+      {
+        "name": "Bernie Madoff",
+        "description": "Former investment advisor and Ponzi scheme operator",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bernard_Madoff.jpg/800px-Bernard_Madoff.jpg",
+        "pubkey": "B3RN13M4d0ffB3RN13M4d0ffB3RN13M4d0ffB3RN13M4d0",
+        "verified": false,
+        "verificationType": "none"
+      },
+      {
+        "name": "Elizabeth Holmes",
+        "description": "Former Theranos CEO and convicted fraudster",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Elizabeth_Holmes_2014_%28cropped%29.jpg/800px-Elizabeth_Holmes_2014_%28cropped%29.jpg",
+        "pubkey": "3L1z4b3thH0lm3s3L1z4b3thH0lm3s3L1z4b3thH0lm3s3L",
+        "verified": false,
+        "verificationType": "none"
+      }
+    ]
+  },
+  "tokenSymbol": "VOTE",
+  "tokenName": "Popular Vote",
+  "tokenAddress": "7dVH4U6ibJb5brKmfBXKGqGU98MqAVRhh5bdTLFMyJCU"
+} 

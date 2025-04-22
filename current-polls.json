@@ -1,0 +1,48 @@
+{
+  "bestPoll": "BKaQ2HxDnxw6GPHxYtsFZfU6CVvZ9q9vBkwXJ8KQcmQY",
+  "worstPoll": "A4M5JkDPzQSCZNP2x9LQzjDK7K3kDJ4JyvPbJjJKgRPQ",
+  "startTime": 1692057600,
+  "createdAt": "2023-08-15T00:00:00.000Z",
+  "candidates": {
+    "best": [
+      {
+        "name": "Elon Musk",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Elon_Musk",
+        "pubkey": "DJiuL4L5vH7piNESyVjUJXHQqpFi3gP3n6EZ4LqUQrcw",
+        "addedAt": "2023-08-15T00:05:00.000Z"
+      },
+      {
+        "name": "Vitalik Buterin",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Vitalik_Buterin",
+        "pubkey": "6HhUmn8tSR4mLSDQWQRQZnaCuQXS1kufa15YZSZzXbmH",
+        "addedAt": "2023-08-15T00:05:30.000Z"
+      },
+      {
+        "name": "Keanu Reeves",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Keanu_Reeves",
+        "pubkey": "F92sVZPYLrZVa23WHKNaVKXwmJbKyQM1sYwzFGKbMmJQ",
+        "addedAt": "2023-08-15T00:06:00.000Z"
+      }
+    ],
+    "worst": [
+      {
+        "name": "Vladimir Putin",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Vladimir_Putin",
+        "pubkey": "EQJGpnbYPxhQVN6Jh9LRCFpENUB1ZpVvB3mmLwxhqyYW",
+        "addedAt": "2023-08-15T00:06:30.000Z"
+      },
+      {
+        "name": "Kim Jong-un",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Kim_Jong-un",
+        "pubkey": "8y8VJWdHRXULtzK4m9VWfMgacwPkjqrLHcbmkwquGNm1",
+        "addedAt": "2023-08-15T00:07:00.000Z"
+      },
+      {
+        "name": "Harvey Weinstein",
+        "wikipediaUrl": "https://en.wikipedia.org/wiki/Harvey_Weinstein",
+        "pubkey": "2sRjJQc5x1cFRwwHQTvKYfJHPDVXvmXQT9S2KynVLgEa",
+        "addedAt": "2023-08-15T00:07:30.000Z"
+      }
+    ]
+  }
+} 

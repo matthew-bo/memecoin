@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@solana/*": ["node_modules/@solana/*"],
+      "@coral-xyz/*": ["node_modules/@coral-xyz/*"]
+    }
+  },
+  "include": ["src"]
+} 

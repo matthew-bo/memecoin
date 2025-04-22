@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      fill: #333;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      fill: #1976d2;
+    }
+    .module {
+      fill: #fff;
+      stroke: #1976d2;
+      stroke-width: 2;
+      rx: 10;
+      ry: 10;
+    }
+    .module-title {
+      font-size: 16px;
+      font-weight: bold;
+      fill: #1976d2;
+    }
+    .module-component {
+      font-size: 14px;
+    }
+    .arrow {
+      stroke: #1976d2;
+      stroke-width: 2;
+      fill: none;
+      marker-end: url(#arrow);
+    }
+    .layer {
+      fill: #f5f5f5;
+      stroke: #ccc;
+      stroke-width: 1;
+      rx: 15;
+      ry: 15;
+      opacity: 0.7;
+    }
+    .layer-title {
+      font-size: 18px;
+      font-weight: bold;
+      fill: #555;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#1976d2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" class="title">Popular Vote Platform - System Architecture</text>
+  
+  <!-- Frontend Layer -->
+  <rect x="100" y="80" width="600" height="150" class="layer" />
+  <text x="400" y="100" text-anchor="middle" class="layer-title">Frontend Layer</text>
+  
+  <!-- Frontend Components -->
+  <rect x="150" y="120" width="120" height="80" class="module" />
+  <text x="210" y="145" text-anchor="middle" class="module-title">UI Components</text>
+  <text x="210" y="165" text-anchor="middle" class="module-component">Vote Page</text>
+  <text x="210" y="185" text-anchor="middle" class="module-component">Results Page</text>
+  
+  <rect x="340" y="120" width="120" height="80" class="module" />
+  <text x="400" y="145" text-anchor="middle" class="module-title">Context API</text>
+  <text x="400" y="165" text-anchor="middle" class="module-component">TokenContext</text>
+  <text x="400" y="185" text-anchor="middle" class="module-component">WalletContext</text>
+  
+  <rect x="530" y="120" width="120" height="80" class="module" />
+  <text x="590" y="145" text-anchor="middle" class="module-title">Services</text>
+  <text x="590" y="165" text-anchor="middle" class="module-component">TokenService</text>
+  <text x="590" y="185" text-anchor="middle" class="module-component">PollService</text>
+  
+  <!-- Arrows between Frontend Components -->
+  <path d="M270,160 H340" class="arrow" />
+  <path d="M460,160 H530" class="arrow" />
+  
+  <!-- Middleware Layer -->
+  <rect x="100" y="250" width="600" height="100" class="layer" />
+  <text x="400" y="270" text-anchor="middle" class="layer-title">Middleware Layer</text>
+  
+  <!-- Middleware Components -->
+  <rect x="250" y="290" width="120" height="40" class="module" />
+  <text x="310" y="315" text-anchor="middle" class="module-title">Wallet Adapter</text>
+  
+  <rect x="430" y="290" width="120" height="40" class="module" />
+  <text x="490" y="315" text-anchor="middle" class="module-title">RPC Client</text>
+  
+  <!-- Arrows between Layers -->
+  <path d="M400,200 V290" class="arrow" />
+  <path d="M310,330 V370" class="arrow" />
+  <path d="M490,330 V370" class="arrow" />
+  
+  <!-- Blockchain Layer -->
+  <rect x="100" y="370" width="600" height="150" class="layer" />
+  <text x="400" y="390" text-anchor="middle" class="layer-title">Blockchain Layer</text>
+  
+  <!-- Blockchain Components -->
+  <rect x="150" y="410" width="120" height="80" class="module" />
+  <text x="210" y="435" text-anchor="middle" class="module-title">Solana Network</text>
+  <text x="210" y="455" text-anchor="middle" class="module-component">Validators</text>
+  <text x="210" y="475" text-anchor="middle" class="module-component">Consensus</text>
+  
+  <rect x="340" y="410" width="120" height="80" class="module" />
+  <text x="400" y="435" text-anchor="middle" class="module-title">On-Chain Program</text>
+  <text x="400" y="455" text-anchor="middle" class="module-component">Poll Logic</text>
+  <text x="400" y="475" text-anchor="middle" class="module-component">Vote Records</text>
+  
+  <rect x="530" y="410" width="120" height="80" class="module" />
+  <text x="590" y="435" text-anchor="middle" class="module-title">Token Contract</text>
+  <text x="590" y="455" text-anchor="middle" class="module-component">$VOTE Token</text>
+  <text x="590" y="475" text-anchor="middle" class="module-component">SPL Standard</text>
+  
+  <!-- Arrows between Blockchain Components -->
+  <path d="M270,450 H340" class="arrow" />
+  <path d="M460,450 H530" class="arrow" />
+</svg> 

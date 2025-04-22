@@ -1,0 +1,51 @@
+{
+  "startTime": 1713833400,
+  "endTime": 1712246400,
+  "bestPoll": "7X3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjkS",
+  "worstPoll": "7Y4csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk3",
+  "candidates": {
+    "best": [
+      {
+        "name": "Shib Inu",
+        "pubkey": "7Z3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk1",
+        "description": "The popular meme coin with a devoted community",
+        "imageUrl": "https://cryptologos.cc/logos/shiba-inu-shib-logo.png"
+      },
+      {
+        "name": "Doge",
+        "pubkey": "7Z3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk2",
+        "description": "The original meme coin that started it all",
+        "imageUrl": "https://cryptologos.cc/logos/dogecoin-doge-logo.png"
+      },
+      {
+        "name": "Pepe",
+        "pubkey": "7Z3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk3",
+        "description": "The memecoin inspired by the famous frog meme",
+        "imageUrl": "https://cryptologos.cc/logos/pepe-pepe-logo.png"
+      }
+    ],
+    "worst": [
+      {
+        "name": "BitConnect",
+        "pubkey": "8Z3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk1",
+        "description": "The infamous scam coin that collapsed spectacularly",
+        "imageUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/2119.png"
+      },
+      {
+        "name": "OneCoin",
+        "pubkey": "8Z3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk2",
+        "description": "One of the largest crypto Ponzi schemes in history",
+        "imageUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/4074.png"
+      },
+      {
+        "name": "Squid Game",
+        "pubkey": "8Z3csFfqA9JCBZAHZxkPJq4mMcr6tLx6HAWyEHk8xjk3",
+        "description": "A rug pull scam that disappeared with investor funds",
+        "imageUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/16136.png"
+      }
+    ]
+  },
+  "tokenSymbol": "VOTE",
+  "tokenName": "Popular Vote",
+  "tokenAddress": "7dVH4U6ibJb5brKmfBXKGqGU98MqAVRhh5bdTLFMyJCU"
+} 

@@ -1,0 +1,17 @@
+{
+  "programId": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS",
+  "tokenMint": "Gh9ZwEmdLJ8DscKNTkTqPbNwLNNBjuSzaG9Vp2KGtKJr",
+  "tokenMetadata": "YOUR_TOKEN_METADATA_ADDRESS_HERE",
+  "pollSystem": "FG6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS",
+  "treasuryAddress": "FG6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS",
+  "authority": "YOUR_AUTHORITY_WALLET_ADDRESS_HERE",
+  "networkUrl": "https://api.devnet.solana.com",
+  "tokenInfo": {
+    "name": "Popular Vote",
+    "symbol": "VOTE",
+    "decimals": 9,
+    "totalSupply": 1000000000
+  },
+  "deploymentDate": "2024-04-20T12:00:00Z",
+  "network": "devnet"
+} 

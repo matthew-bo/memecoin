@@ -1,0 +1,47 @@
+{
+  "name": "memecoin-vote",
+  "version": "0.1.0",
+  "description": "Memecoin with daily voting functionality for 'best' and 'worst' person polls",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd app && npm start",
+    "build": "cd app && npm run build && node scripts/generate-pdf.js",
+    "deploy": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:program": "cd src/program && cargo build-bpf",
+    "deploy:program": "solana program deploy target/deploy/memecoin_vote.so",
+    "generate-pdf": "node scripts/generate-pdf.js",
+    "init": "node scripts/init-token.js",
+    "create-polls": "node scripts/manage-polls.js create-polls",
+    "add-candidate": "node scripts/manage-polls.js add-candidate",
+    "close-polls": "node scripts/manage-polls.js close-polls",
+    "view-results": "node scripts/manage-polls.js view-results",
+    "vote": "node scripts/vote.js",
+    "deploy:all": "node scripts/deploy-all.js",
+    "airdrop": "node scripts/airdrop.js"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.28.0",
+    "@solana/spl-token": "^0.3.7",
+    "@solana/web3.js": "^1.73.3",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "fs": "^0.0.1-security",
+    "html-pdf-node": "^1.0.8",
+    "pdf-lib": "^1.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/memecoin-vote.git"
+  },
+  "keywords": [
+    "solana",
+    "memecoin",
+    "dao",
+    "voting",
+    "blockchain"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="600" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="300" fill="#f8f9fa" rx="10" ry="10"/>
+  
+  <!-- Title -->
+  <text x="300" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#1976d2">Attention Economy</text>
+
+  <!-- Central Voting Icon -->
+  <circle cx="300" cy="150" r="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="3"/>
+  <text x="300" y="160" text-anchor="middle" font-family="Arial" font-size="36" font-weight="bold" fill="#1976d2">VOTE</text>
+  
+  <!-- Rays of Attention -->
+  <line x1="200" y1="150" x2="150" y2="150" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="150,150 160,145 160,155" fill="#ffb74d"/>
+  
+  <line x1="400" y1="150" x2="450" y2="150" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="450,150 440,145 440,155" fill="#ffb74d"/>
+  
+  <line x1="300" y1="50" x2="300" y2="20" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="300,20 295,30 305,30" fill="#ffb74d"/>
+  
+  <line x1="300" y1="250" x2="300" y2="280" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="300,280 295,270 305,270" fill="#ffb74d"/>
+  
+  <line x1="230" y1="80" x2="200" y2="50" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="200,50 210,55 215,65" fill="#ffb74d"/>
+  
+  <line x1="370" y1="80" x2="400" y2="50" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="400,50 390,55 385,65" fill="#ffb74d"/>
+  
+  <line x1="230" y1="220" x2="200" y2="250" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="200,250 210,245 215,235" fill="#ffb74d"/>
+  
+  <line x1="370" y1="220" x2="400" y2="250" stroke="#ffb74d" stroke-width="4"/>
+  <polygon points="400,250 390,245 385,235" fill="#ffb74d"/>
+
+  <!-- Features -->
+  <circle cx="130" cy="80" r="30" fill="#fff" stroke="#1976d2" stroke-width="2"/>
+  <text x="130" y="85" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Distinctive</text>
+  <text x="130" y="100" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Branding</text>
+  
+  <circle cx="130" cy="220" r="30" fill="#fff" stroke="#1976d2" stroke-width="2"/>
+  <text x="130" y="225" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Interactive</text>
+  <text x="130" y="240" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Elements</text>
+  
+  <circle cx="470" cy="80" r="30" fill="#fff" stroke="#1976d2" stroke-width="2"/>
+  <text x="470" y="85" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Community</text>
+  <text x="470" y="100" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Building</text>
+  
+  <circle cx="470" cy="220" r="30" fill="#fff" stroke="#1976d2" stroke-width="2"/>
+  <text x="470" y="225" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Early Adopter</text>
+  <text x="470" y="240" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#1976d2">Rewards</text>
+</svg> 

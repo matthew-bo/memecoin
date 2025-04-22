@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MemeDAO - Vote-to-Earn on Solana</title>
+    <script>
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      
+      // This script takes the current URL and converts the path and query
+      // parameters into just a query parameter that will be handled by the
+      // single page app router. The new URL will be:
+      //
+      // If the current URL is https://example.org/foo/bar?baz=qux,
+      // it will redirect to https://example.org/?/foo/bar&baz=qux
+      
+      // Save the URL to sessionStorage
+      sessionStorage.redirect = location.href;
+      
+      // Redirect to the index.html page to handle client-side routing
+      location.href = location.pathname.split('/').slice(0, -1).join('/') + '/index.html';
+    </script>
+  </head>
+  <body>
+    <!-- This page is displayed only when a page isn't found -->
+    <h1>Page Not Found</h1>
+    <p>If you're not redirected automatically, <a href="./index.html">click here to go to the homepage</a>.</p>
+  </body>
+</html> 

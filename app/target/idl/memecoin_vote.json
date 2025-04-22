@@ -1,0 +1,486 @@
+{
+  "version": "0.1.0",
+  "name": "memecoin_vote",
+  "instructions": [
+    {
+      "name": "initializeToken",
+      "accounts": [
+        {
+          "name": "tokenMetadata",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenMint",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "pollSystem",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "tokenProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "rent",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        },
+        {
+          "name": "uri",
+          "type": "string"
+        },
+        {
+          "name": "decimals",
+          "type": "u8"
+        },
+        {
+          "name": "totalSupply",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "createBestPoll",
+      "accounts": [
+        {
+          "name": "pollSystem",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pollAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "startTime",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "createWorstPoll",
+      "accounts": [
+        {
+          "name": "pollSystem",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pollAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "startTime",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "addCandidate",
+      "accounts": [
+        {
+          "name": "pollSystem",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "pollAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "candidateAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "pollId",
+          "type": "u64"
+        },
+        {
+          "name": "pollType",
+          "type": {
+            "defined": "PollType"
+          }
+        },
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "wikipediaUrl",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "vote",
+      "accounts": [
+        {
+          "name": "pollAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "candidateAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "userVoteAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "tokenAccount",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "user",
+          "isMut": true,
+          "isSigner": true
+        },
+        {
+          "name": "systemProgram",
+          "isMut": false,
+          "isSigner": false
+        }
+      ],
+      "args": [
+        {
+          "name": "pollId",
+          "type": "u64"
+        },
+        {
+          "name": "pollType",
+          "type": {
+            "defined": "PollType"
+          }
+        }
+      ]
+    },
+    {
+      "name": "closePoll",
+      "accounts": [
+        {
+          "name": "pollSystem",
+          "isMut": false,
+          "isSigner": false
+        },
+        {
+          "name": "pollAccount",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "authority",
+          "isMut": true,
+          "isSigner": true
+        }
+      ],
+      "args": [
+        {
+          "name": "pollId",
+          "type": "u64"
+        },
+        {
+          "name": "pollType",
+          "type": {
+            "defined": "PollType"
+          }
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "TokenMetadata",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "uri",
+            "type": "string"
+          },
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "decimals",
+            "type": "u8"
+          },
+          {
+            "name": "totalSupply",
+            "type": "u64"
+          },
+          {
+            "name": "transactionFeeBp",
+            "type": "u16"
+          },
+          {
+            "name": "developmentAllocation",
+            "type": "u8"
+          },
+          {
+            "name": "marketingAllocation",
+            "type": "u8"
+          },
+          {
+            "name": "teamAllocation",
+            "type": "u8"
+          },
+          {
+            "name": "communityAllocation",
+            "type": "u8"
+          },
+          {
+            "name": "liquidityAllocation",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PollSystem",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "bestPollCurrentId",
+            "type": "u64"
+          },
+          {
+            "name": "worstPollCurrentId",
+            "type": "u64"
+          },
+          {
+            "name": "pollDuration",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Poll",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pollId",
+            "type": "u64"
+          },
+          {
+            "name": "pollType",
+            "type": {
+              "defined": "PollType"
+            }
+          },
+          {
+            "name": "startTime",
+            "type": "i64"
+          },
+          {
+            "name": "endTime",
+            "type": "i64"
+          },
+          {
+            "name": "isActive",
+            "type": "bool"
+          },
+          {
+            "name": "totalVotes",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Candidate",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "pollId",
+            "type": "u64"
+          },
+          {
+            "name": "pollType",
+            "type": {
+              "defined": "PollType"
+            }
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "wikipediaUrl",
+            "type": "string"
+          },
+          {
+            "name": "votes",
+            "type": "u64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UserVote",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "hasVoted",
+            "type": "bool"
+          },
+          {
+            "name": "votingPower",
+            "type": "u64"
+          },
+          {
+            "name": "voteTimestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    }
+  ],
+  "types": [
+    {
+      "name": "PollType",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Best"
+          },
+          {
+            "name": "Worst"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "UnauthorizedPollCreation",
+      "msg": "Unauthorized poll creation"
+    },
+    {
+      "code": 6001,
+      "name": "UnauthorizedCandidateAddition",
+      "msg": "Unauthorized candidate addition"
+    },
+    {
+      "code": 6002,
+      "name": "UnauthorizedPollClosure",
+      "msg": "Unauthorized poll closure"
+    },
+    {
+      "code": 6003,
+      "name": "PollEnded",
+      "msg": "Poll has ended"
+    },
+    {
+      "code": 6004,
+      "name": "InactivePoll",
+      "msg": "Poll is inactive"
+    },
+    {
+      "code": 6005,
+      "name": "InvalidPoll",
+      "msg": "Invalid poll"
+    },
+    {
+      "code": 6006,
+      "name": "AlreadyVoted",
+      "msg": "User has already voted in this poll"
+    },
+    {
+      "code": 6007,
+      "name": "InsufficientVotingPower",
+      "msg": "Insufficient voting power"
+    }
+  ],
+  "metadata": {
+    "address": "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+  }
+} 
