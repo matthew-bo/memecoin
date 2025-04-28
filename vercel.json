@@ -2,18 +2,17 @@
   "version": 2,
   "builds": [
     {
-      "src": "public/**",
-      "use": "@vercel/static"
+      "src": "app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/whitepaper",
-      "dest": "/public/docs/whitepaper.pdf"
-    },
-    {
-      "src": "/whitepaper.pdf",
-      "dest": "/public/docs/whitepaper.pdf"
+      "src": "/(.*)",
+      "dest": "app/$1"
     }
   ]
 } 
