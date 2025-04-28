@@ -37,7 +37,7 @@ import WalletButton from '../components/WalletButton';
 import Confetti from 'react-confetti';
 import useWindowSize from '../hooks/useWindowSize';
 import { sendAndConfirmTransaction, formatTransactionError } from '../utils/TransactionUtils';
-import { notifySuccess, notifyError } from '../utils/NotificationUtils';
+import { showSuccessNotification as notifySuccess, showErrorNotification as notifyError } from '../utils/NotificationUtils';
 
 const Vote = () => {
   const { connected, publicKey, wallet } = useWallet();

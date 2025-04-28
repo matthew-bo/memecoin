@@ -2,7 +2,7 @@
  * Utilities for handling Solana transactions
  */
 import { Connection } from '@solana/web3.js';
-import { notify } from './NotificationUtils';
+import { showNotification as notify } from './NotificationUtils';
 
 /**
  * Send and confirm a transaction with proper error handling

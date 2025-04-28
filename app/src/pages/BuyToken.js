@@ -41,7 +41,7 @@ import TokenService from '../services/TokenService';
 import { useToken } from '../contexts/TokenContext';
 import Confetti from 'react-confetti';
 import { sendAndConfirmTransaction, formatTransactionError } from '../utils/TransactionUtils';
-import { notifySuccess, notifyError } from '../utils/NotificationUtils';
+import { showSuccessNotification as notifySuccess, showErrorNotification as notifyError } from '../utils/NotificationUtils';
 
 // Register ChartJS components
 ChartJS.register(
