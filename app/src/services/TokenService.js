@@ -11,12 +11,18 @@ let programId;
 let connection;
 let program = null;
 
+// Initialize connection with default values
+connection = new Connection('https://api.devnet.solana.com', 'confirmed');
+tokenMint = new PublicKey(TOKEN_MINT);
+programId = new PublicKey(PROGRAM_ID);
+
 // Load deployment info from public directory
 async function loadDeploymentInfo() {
   try {
     const response = await fetch('/deployment-info.json');
     if (!response.ok) {
-      throw new Error('Failed to fetch deployment info');
+      console.warn('Using default deployment info');
+      return null;
     }
     const deploymentInfo = await response.json();
     
@@ -34,63 +40,48 @@ async function loadDeploymentInfo() {
     console.log('Deployment info loaded successfully');
     return deploymentInfo;
   } catch (error) {
-    console.error('Error loading deployment info:', error);
-    // Set up fallback connection if fetch fails
-    connection = new Connection('https://api.devnet.solana.com', 'confirmed');
-    tokenMint = new PublicKey(TOKEN_MINT);
-    programId = new PublicKey(PROGRAM_ID);
+    console.warn('Error loading deployment info, using defaults:', error);
     return null;
   }
 }
 
-// Initialize connection
-connection = new Connection('https://api.devnet.solana.com', 'confirmed');
-tokenMint = new PublicKey(TOKEN_MINT);
-programId = new PublicKey(PROGRAM_ID);
-
 // Load the IDL
-let idl = null;
-try {
-  // Fetch IDL dynamically to avoid import issues
-  fetch('/target/idl/memecoin_vote.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Failed to fetch IDL');
-      }
-      return response.json();
-    })
-    .then(data => {
-      idl = data;
-      console.log('IDL loaded successfully');
-    })
-    .catch(error => {
-      console.error('Error fetching IDL:', error);
-    });
-} catch (error) {
-  console.error('Failed to load IDL. Some functionality may be limited:', error);
-}
-
-// Trigger deployment info loading on module init
-loadDeploymentInfo();
-
-// Later in the code we can check for program availability
-// Update where the tokenInfo and connection are initialized to include
-try {
-  // Try to create a program instance if IDL and programId are available
-  if (idl && programId) {
-    // This would typically be provided by the wallet adapter
-    // For now, just create a program instance with a static provider
-    const provider = new anchor.AnchorProvider(
-      connection,
-      {}, // Empty wallet for read-only operations
-      { commitment: 'processed' }
-    );
-    program = new anchor.Program(idl, programId, provider);
-    console.log('Anchor program instantiated');
+async function loadIDL() {
+  try {
+    const response = await fetch('/target/idl/memecoin_vote.json');
+    if (!response.ok) {
+      console.warn('IDL not found, some functionality may be limited');
+      return null;
+    }
+    const idl = await response.json();
+    console.log('IDL loaded successfully');
+    return idl;
+  } catch (error) {
+    console.warn('Failed to load IDL, some functionality may be limited:', error);
+    return null;
   }
-} catch (error) {
-  console.warn('Failed to initialize program:', error);
 }
+
+// Initialize program when possible
+async function initializeProgram() {
+  try {
+    const idl = await loadIDL();
+    if (idl && programId) {
+      const provider = new anchor.AnchorProvider(
+        connection,
+        {}, // Empty wallet for read-only operations
+        { commitment: 'processed' }
+      );
+      program = new anchor.Program(idl, programId, provider);
+      console.log('Anchor program instantiated');
+    }
+  } catch (error) {
+    console.warn('Failed to initialize program:', error);
+  }
+}
+
+// Start initialization
+loadDeploymentInfo().then(() => initializeProgram());
 
 /**
  * Service for interacting with the MemeVote token and voting system

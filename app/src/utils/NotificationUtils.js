@@ -3,14 +3,14 @@
  */
 
 // Local notifications state (will be replaced with a proper state management solution)
-let globalNotifyCallback = null;
+let notificationCallback = null;
 
 /**
  * Register a notification callback for the app
  * @param {Function} callback Function to call with notification data
  */
 export const registerNotificationCallback = (callback) => {
-  globalNotifyCallback = callback;
+  notificationCallback = callback;
 };
 
 /**
@@ -22,37 +22,11 @@ export const registerNotificationCallback = (callback) => {
  * @param {number} options.duration Duration in milliseconds
  * @param {string} options.txid Transaction ID for blockchain operations
  */
-export const notify = ({ 
-  message, 
-  description = '', 
-  type = 'info', 
-  duration = 4000,
-  txid = null 
-}) => {
-  // Log to console
-  const logMethod = type === 'error' 
-    ? console.error 
-    : type === 'warning' 
-      ? console.warn 
-      : console.log;
-  
-  logMethod(`[${type.toUpperCase()}] ${message}${description ? ': ' + description : ''}`);
-  
-  if (txid) {
-    // For blockchain transactions, add link to explorer
-    const explorerLink = `https://explorer.solana.com/tx/${txid}?cluster=devnet`;
-    console.log(`Transaction link: ${explorerLink}`);
-  }
-  
-  // Call the global notification callback if registered
-  if (globalNotifyCallback) {
-    globalNotifyCallback({
-      message,
-      description,
-      type,
-      duration,
-      txid
-    });
+export const showNotification = (notification) => {
+  if (notificationCallback) {
+    notificationCallback(notification);
+  } else {
+    console.warn('No notification callback registered');
   }
 };
 
@@ -62,12 +36,12 @@ export const notify = ({
  * @param {string} description Detailed description
  * @param {string} txid Optional transaction ID
  */
-export const notifySuccess = (message, description = '', txid = null) => {
-  notify({
+export const showSuccessNotification = (message, description = '', duration = 5000) => {
+  showNotification({
+    type: 'success',
     message,
     description,
-    type: 'success',
-    txid
+    duration
   });
 };
 
@@ -77,20 +51,12 @@ export const notifySuccess = (message, description = '', txid = null) => {
  * @param {string|Error} error Error description or object
  * @param {string} txid Optional transaction ID
  */
-export const notifyError = (message, error = '', txid = null) => {
-  let description = error;
-  
-  // If error is an object with message property
-  if (error && typeof error === 'object' && error.message) {
-    description = error.message;
-  }
-  
-  notify({
+export const showErrorNotification = (message, description = '', duration = 5000) => {
+  showNotification({
+    type: 'error',
     message,
     description,
-    type: 'error',
-    duration: 8000, // Errors stay longer
-    txid
+    duration
   });
 };
 
@@ -99,11 +65,12 @@ export const notifyError = (message, error = '', txid = null) => {
  * @param {string} message Notification message
  * @param {string} description Detailed description
  */
-export const notifyInfo = (message, description = '') => {
-  notify({
+export const showInfoNotification = (message, description = '', duration = 5000) => {
+  showNotification({
+    type: 'info',
     message,
     description,
-    type: 'info'
+    duration
   });
 };
 
@@ -112,11 +79,28 @@ export const notifyInfo = (message, description = '') => {
  * @param {string} message Notification message
  * @param {string} description Detailed description
  */
-export const notifyWarning = (message, description = '') => {
-  notify({
+export const showWarningNotification = (message, description = '', duration = 5000) => {
+  showNotification({
+    type: 'warning',
     message,
     description,
-    type: 'warning',
-    duration: 6000 // Warnings stay a bit longer
+    duration
+  });
+};
+
+/**
+ * Show a transaction notification
+ * @param {string} message Notification message
+ * @param {string} txid Transaction ID
+ * @param {string} description Detailed description
+ * @param {number} duration Duration in milliseconds
+ */
+export const showTransactionNotification = (message, txid, description = '', duration = 5000) => {
+  showNotification({
+    type: 'success',
+    message,
+    description,
+    txid,
+    duration
   });
 }; 

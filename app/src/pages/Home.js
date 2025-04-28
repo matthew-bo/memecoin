@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
@@ -38,6 +38,7 @@ const pulse = keyframes`
 
 const Home = () => {
   const theme = useTheme();
+  const [imageError, setImageError] = useState(false);
 
   // Quotes for the app
   const quotes = [
@@ -99,12 +100,30 @@ const Home = () => {
         </Grid>
 
         <Grid item xs={12} md={6}>
-          <Paper elevation={4} sx={{ p: 0, overflow: 'hidden', height: '100%' }}>
+          <Paper elevation={4} sx={{ p: 0, overflow: 'hidden', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <img
-              src="/images/vote-illustration.png"
+              src="/images/vote-illustration.svg"
               alt="Popular Vote illustration"
-              style={{ width: '100%', height: 'auto' }}
+              style={{ width: '100%', height: 'auto', maxHeight: '400px', objectFit: 'contain' }}
+              onError={(e) => {
+                console.error('Failed to load image:', e);
+                setImageError(true);
+                // Fallback to a simple colored background
+                e.target.style.display = 'none';
+              }}
             />
+            {imageError && (
+              <Box sx={{ 
+                width: '100%', 
+                height: '300px', 
+                bgcolor: 'primary.light',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <HowToVoteIcon sx={{ fontSize: 80, color: 'white' }} />
+              </Box>
+            )}
           </Paper>
         </Grid>
         

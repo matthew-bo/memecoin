@@ -15,22 +15,32 @@ import TransactionHistory from './pages/TransactionHistory';
 import Whitepaper from './pages/Whitepaper';
 import { TokenProvider } from './contexts/TokenContext';
 import { registerNotificationCallback } from './utils/NotificationUtils';
-import { Snackbar, Alert } from '@mui/material';
+import { Snackbar, Alert, Box, Typography, CircularProgress } from '@mui/material';
 
 function App() {
   const [notification, setNotification] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    registerNotificationCallback((notificationData) => {
-      setNotification({
-        open: true,
-        message: notificationData.message,
-        description: notificationData.description,
-        severity: notificationData.type,
-        duration: notificationData.duration,
-        txid: notificationData.txid
+    console.log('App component mounted');
+    try {
+      registerNotificationCallback((notificationData) => {
+        setNotification({
+          open: true,
+          message: notificationData.message,
+          description: notificationData.description,
+          severity: notificationData.type,
+          duration: notificationData.duration,
+          txid: notificationData.txid
+        });
       });
-    });
+      setLoading(false);
+    } catch (err) {
+      console.error('Error in App initialization:', err);
+      setError(err.message);
+      setLoading(false);
+    }
   }, []);
 
   const handleCloseNotification = (event, reason) => {
@@ -77,6 +87,44 @@ function App() {
       </Snackbar>
     );
   };
+
+  if (loading) {
+    return (
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          minHeight: '100vh',
+          flexDirection: 'column',
+          gap: 2
+        }}
+      >
+        <CircularProgress />
+        <Typography>Loading application...</Typography>
+      </Box>
+    );
+  }
+
+  if (error) {
+    return (
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          minHeight: '100vh',
+          flexDirection: 'column',
+          gap: 2,
+          p: 3,
+          textAlign: 'center'
+        }}
+      >
+        <Typography variant="h5" color="error">Error Loading Application</Typography>
+        <Typography color="text.secondary">{error}</Typography>
+      </Box>
+    );
+  }
 
   return (
     <ThemeProvider theme={theme}>

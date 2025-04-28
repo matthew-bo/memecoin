@@ -31,6 +31,7 @@ const Header = () => {
   const [tokenBalance, setTokenBalance] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState(null);
   const location = useLocation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   
@@ -39,23 +40,31 @@ const Header = () => {
       if (connected && publicKey) {
         try {
           const balanceResult = await TokenService.getTokenBalance(publicKey);
-          // Extract the balance value from the result object
           setTokenBalance(balanceResult.success ? balanceResult.balance : 0);
           
           // Check if user is admin
           const adminStatus = await TokenService.isAdmin(publicKey.toString());
           setIsAdmin(adminStatus);
+          setError(null);
         } catch (error) {
           console.error('Error fetching token balance or admin status:', error);
+          setError(error.message);
+          // Don't update other state on error
         }
       } else {
         setIsAdmin(false);
+        setTokenBalance(0);
+        setError(null);
       }
     };
 
-    fetchTokenBalance();
+    fetchTokenBalance().catch(console.error);
+    
     // Set up polling to update balance
-    const intervalId = setInterval(fetchTokenBalance, 10000);
+    const intervalId = setInterval(() => {
+      fetchTokenBalance().catch(console.error);
+    }, 10000);
+    
     return () => clearInterval(intervalId);
   }, [connected, publicKey]);
 
